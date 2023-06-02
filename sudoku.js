@@ -6,11 +6,11 @@ const { log } = require('console');
  * Договорись со своей командой, в каком формате возвращать этот результат.
  */
 function solve(boardString) {
-  const b = boardString.split('');
+  const arr= boardString.split('');
   let size = 9;
   let subarray = [];
-  for (let i = 0; i < Math.ceil(b.length / size); i++) {
-    subarray[i] = b.slice(i * size, i * size + size);
+  for (let i = 0; i < Math.ceil(arr.length / size); i++) {
+    subarray[i] = arr.slice(i * size, i * size + size);
   }
   return subarray;
 }
