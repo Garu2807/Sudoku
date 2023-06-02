@@ -119,7 +119,39 @@ function solve(boardString) {
  * Принимает игровое поле в том формате, в котором его вернули из функции solve.
  * Возвращает булевое значение — решено это игровое поле или нет.
  */
-function isSolved(board) {}
+function isSolved(board) {
+  // все ли поля ок
+  if (board.flat().includes(0)) {
+    return false;
+  }
+
+  //уникально ли в строке
+  for (let i = 0; i < 9; i++) {
+    if (
+      new Set(board[i]).size !== 9 ||
+      new Set(board.map((row) => row[i])).size !== 9
+    ) {
+      return false;
+    }
+  }
+
+  // уникально ли в квадратике
+  for (let i = 0; i < 9; i += 3) {
+    for (let j = 0; j < 9; j += 3) {
+      let square = [];
+      for (let k = i; k < i + 3; k++) {
+        for (let l = j; l < j + 3; l++) {
+          square.push(board[k][l]);
+        }
+      }
+      if (new Set(square).size !== 9) {
+        return false;
+      }
+    }
+  }
+
+  return true;
+}
 
 /**
  * Принимает игровое поле в том формате, в котором его вернули из функции solve.
