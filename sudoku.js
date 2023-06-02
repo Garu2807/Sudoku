@@ -15,7 +15,7 @@ function isSolved(board) {
     return false;
   }
 
-  //проверяет есть ли уникальные значения
+  //уникально ли в строке
   for (let i = 0; i < 9; i++) {
     if (
       new Set(board[i]).size !== 9 ||
@@ -25,7 +25,7 @@ function isSolved(board) {
     }
   }
 
-  // Проверка уникальности цифр в квадратах 3x3
+  // уникально ли в квадратике
   for (let i = 0; i < 9; i += 3) {
     for (let j = 0; j < 9; j += 3) {
       let square = [];
